@@ -4,3 +4,24 @@
  * 
  */
 
+/* Counter */
+.counter {
+	display: block;
+	background: #1a1e23;
+	padding: 36px 0;
+	color: #fff;
+}
+
+/* Google Map */
+.location-map {
+    padding: 4px;
+    border-bottom: 3px double #eee;
+}
+
+/* Footer */
+.footer-wrapper {
+	display: block;
+    background: #1a1e23;
+    padding: 36px 0;
+    color: #fff;
+}
