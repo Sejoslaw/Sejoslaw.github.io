@@ -6,15 +6,8 @@
  * 
  */
 
-// Game Canvas
-//var canvas = document.getElementById("flappyBlockCanvas");
-// Game Context (Graphics or Painter)
-//var context = canvas.getContext("2d");
-
 // Initialize Phaser, and create a 400px by 490px game
 var game = new Phaser.Game(400, 490, Phaser.AUTO, "gameDiv");
-//game.canvas = canvas;
-//game.context = context;
 
 // 'main' state that will contain the game
 var mainState = 
