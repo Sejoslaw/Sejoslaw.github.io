@@ -33,6 +33,8 @@
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<!-- jQuery Mobile JS -->
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!-- Swipe Carousel -->
+	<script src="js/carousel-swipe.js"></script>
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="css/main.css">
 	
@@ -144,14 +146,16 @@
 			<div class="item active">
 				<img src="https://media-elerium.cursecdn.com/avatars/89/597/636232452705426096.png" alt="Vanilla Magic" style="width:100%;">
 				<div class="carousel-caption">
-					<h3>Vanilla Magic <a href="https://minecraft.curseforge.com/projects/vanilla-magic">Link</a></h3>
+					<h3>Vanilla Magic</h3>
+					<h3><a href="https://minecraft.curseforge.com/projects/vanilla-magic">Link</a></h3>
 				</div>
 			</div>
 			
 			<div class="item">
 				<img src="http://i68.tinypic.com/ng829g.png" alt="Vanilla Magic Addon" style="width:100%;">
 				<div class="carousel-caption">
-					<h3>Vanilla Magic Addon <a href="https://minecraft.curseforge.com/projects/vanilla-magic-addon">Link</a></h3>
+					<h3>Vanilla Magic Addon</h3>
+					<h3><a href="https://minecraft.curseforge.com/projects/vanilla-magic-addon">Link</a></h3>
 				</div>
 			</div>
 		</div>
@@ -168,6 +172,9 @@
 		
 		<!-- jQuery Mobile Swipe -->
 		<script>
+			$("#projectCarousel").carousel()
+		</script>
+		<!--script>
 			$(document).ready(function() {
 				$("#projectCarousel").swiperight(function() {
 					$(this).carousel('prev');
@@ -176,7 +183,7 @@
 					$(this).carousel('next');
 				});
 			});
-		</script>
+		</script-->
 	</div>
 	<!-- End Projects description - carousel -->
 	
