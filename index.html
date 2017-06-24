@@ -29,12 +29,8 @@
 	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
 	<!-- Magnific CSS -->
 	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dimsemenov/Magnific-Popup/master/dist/magnific-popup.css">
-	<!-- jQuery Mobile CSS -->
-	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-	<!-- jQuery Mobile JS -->
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<!-- Swipe Carousel -->
-	<script src="js/carousel-swipe.js"></script>
+	<!-- jQuery TouchSwipe Plugin-->
+	<script src="js/jquery.touchSwipe.min.js"></script>
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="css/main.css">
 	
@@ -133,7 +129,7 @@
 	<!-- End Personal description -->
 	
 	<!-- Projects description - carousel -->
-	<center><h2><b>Top Known Projects</b></h2></center>
+	<center><h2><b>Best Known Projects</b></h2></center>
 	<div id="projectCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -170,20 +166,23 @@
 			<span class="sr-only">Next</span>
 		</a>
 		
-		<!-- jQuery Mobile Swipe -->
+		<!-- Mobile Swipe -->
 		<script>
-			$("#projectCarousel").carousel()
-		</script>
-		<!--script>
-			$(document).ready(function() {
-				$("#projectCarousel").swiperight(function() {
-					$(this).carousel('prev');
-				});
-				$("#projectCarousel").swipeleft(function() {
-					$(this).carousel('next');
+			$(document).ready(function() {  
+				//Enable swiping...
+				$(".carousel-inner").swipe( {
+					//Generic swipe handler for all directions
+					swipeLeft:function(event, direction, distance, duration, fingerCount) {
+						$(this).parent().carousel('prev'); 
+					},
+					swipeRight: function() {
+						$(this).parent().carousel('next'); 
+					},
+					//Default is 75px, set to 0 for demo so any distance triggers swipe
+					threshold:0
 				});
 			});
-		</script-->
+		</script>
 	</div>
 	<!-- End Projects description - carousel -->
 	
