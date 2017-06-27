@@ -148,7 +148,8 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="https://media-elerium.cursecdn.com/avatars/89/597/636232452705426096.png" alt="Vanilla Magic" style="width:100%;">
+				<img src="https://media-elerium.cursecdn.com/avatars/89/597/636232452705426096.png" alt="Vanilla Magic" 
+                     style="width:100%;">
 				<div class="carousel-caption">
 					<h3>Vanilla Magic</h3>
 					<h3><a href="https://minecraft.curseforge.com/projects/vanilla-magic">Link</a></h3>
@@ -156,7 +157,8 @@
 			</div>
 			
 			<div class="item">
-				<img src="http://i68.tinypic.com/ng829g.png" alt="Vanilla Magic Addon" style="width:100%;">
+				<img src="http://i68.tinypic.com/ng829g.png" alt="Vanilla Magic Addon" 
+                     style="width:100%;">
 				<div class="carousel-caption">
 					<h3>Vanilla Magic Addon</h3>
 					<h3><a href="https://minecraft.curseforge.com/projects/vanilla-magic-addon">Link</a></h3>
@@ -337,6 +339,153 @@
 		</div>
 	</div>
 	<!-- End Google Map with my city -->
+
+    <!-- E-Mail me :-) -->
+    <div class="counter">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <form id="mail_form">
+                    <center><h3>E-Mail me :-)</h3></center>
+                    <input type="text" name="contact_mail" placeholder="Contact E-Mail"
+                           style="width:50%; color:black"/>
+                    <br>
+                    <br>
+                    <input type="text" name="subject" placeholder="Subject" 
+                           style="width:50%; color:black"/>
+                    <br>
+                    <br>
+                    <textarea name="text" placeholder="Message" 
+                              style="width:50%; height:250px; color:black"></textarea>
+                    <br>
+                    <input class="btn btn-lg btn-default btn-link" 
+                           type="submit" id="mail_send" value="Send" style="color:black"/>
+                </form>
+
+                <!-- FIX:  Find a way to fix building message and subject 
+                    and use variables instead of document.querySelector everywhere -->
+                <!-- E-Mail logic -->
+                <script>
+                    var form_mail = "mail_form";
+                    var data = {
+                        "access_token": "5p18r6mzid8j6evot5vl2jnj"
+                    };
+
+                    // Checks if E-Mail is correct
+                    function isEmailCorrect()
+                    {
+                        var emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                        return emailReg.test(document.querySelector("#" + form_mail + " [name='contact_mail']").value);
+                    }
+
+                    // Redirect to main page
+                    function reloadPage()
+                    {
+                        window.location = window.location.pathname;
+                    }
+
+                    // What should happen if message was send successfully
+                    function mailOnSuccess()
+                    {
+                        alert("Message Send.");
+                        reloadPage();
+                    }
+
+                    // What should happen if message wasn't send successfully
+                    function mailOnError(error)
+                    {
+                        alert("Message Didn't Send.");
+                        reloadPage();
+                    }
+
+                    var sendButton = document.getElementById("mail_send");
+
+                    // Build Subject
+                    function constructSubject()
+                    {
+                        return "Send from: https://sejoslaw.github.io - Subject: " +
+                            document.querySelector("#" + form_mail + " [name='subject']").value;
+                    }
+
+                    // Build Message
+                    function constructMessage()
+                    {
+                        return "Ip: \n" + document.getElementById("ip-text").innerText + "\n\n" + 
+                            "Contact E-Mail: \n" + 
+                            document.querySelector("#" + form_mail + " [name='contact_mail']").value + "\n\n" + 
+                            "Subject: \n" + 
+                            document.querySelector("#" + form_mail + " [name='subject']").value + "\n\n" + 
+                            "Message: \n" + 
+                            document.querySelector("#" + form_mail + " [name='text']").value
+                    }
+
+                    // Send Mail
+                    function mailSend()
+                    {
+                        if (!isEmailCorrect())
+                        {
+                            alert("Incorrect E-Mail.");
+                            return false;
+                        }
+
+                        sendButton.value = 'Sending…';
+                        sendButton.disabled = true;
+                        var request = new XMLHttpRequest();
+                        request.onreadystatechange = function ()
+                        {
+                            if (request.readyState == 4 && request.status == 200)
+                            {
+                                mailOnSuccess();
+                            }
+                            else if (request.readyState == 4)
+                            {
+                                mailOnError(request.response);
+                                return false;
+                            }
+                        };
+
+                        var subject = constructSubject();
+                        var message = constructMessage();
+                        data['subject'] = subject;
+                        data['text'] = message;
+                        var params = toParams(data);
+
+                        request.open("POST", "https://postmail.invotes.com/send", true);
+                        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                        request.send(params);
+
+                        return false;
+                    }
+
+                    // Connect function with button
+                    sendButton.onclick = mailSend;
+                    
+                    function toParams(data)
+                    {
+                        var form_data = [];
+                        for (var key in data)
+                        {
+                            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
+                        }
+
+                        return form_data.join("&");
+                    }
+                    
+                    document.getElementById(form_mail).addEventListener("submit", function (e)
+                    {
+                        e.preventDefault();
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-- End E-Mail me :-) -->
+
+    <!-- Space before footer (if needed) -->
+    <div>
+        <label></label>
+    </div>
+    <!-- End -->
 
 	<!-- Footer with copyrights -->
 	<footer class="footer-wrapper">

@@ -107,12 +107,12 @@ Paddle.prototype.move = function(moveX, moveY)
 	this.posY += moveY;
 	this.speedX = moveX;
 	this.speedY = moveY;
-	if(this.posX < 0) // all the way to the left
+	if (this.posX < 0) // all the way to the left
 	{ 
 		this.posX = 0;
 		this.speedX = 0;
 	} 
-	else if(this.posX + this.width > width) // all the way to the right
+	else if (this.posX + this.width > width) // all the way to the right
 	{ 
 		this.posX = width - this.width;
 		this.speedX = 0;
@@ -134,14 +134,14 @@ Player.prototype.render = function()
 // Update player's position
 Player.prototype.update = function() 
 {
-	for(var key in keysDown) 
+	for (var key in keysDown) 
 	{
 		var value = Number(key);
-		if(value == 37) // left arrow
+		if (value == 37) // left arrow
 		{
 			this.paddle.move(-4, 0);
 		} 
-		else if(value == 39) // right arrow
+		else if (value == 39) // right arrow
 		{
 			this.paddle.move(4, 0);
 		} 
@@ -169,17 +169,17 @@ Computer.prototype.update = function(ball)
 {
 	var posX = ball.posX;
 	var diff = -((this.paddle.posX + (this.paddle.width / 2)) - posX);
-	if(diff < 0 && diff < -4) // max speed left
+	if (diff < 0 && diff < -4) // max speed left
 	{ 
 		diff = -5;
 	} 
-	else if(diff > 0 && diff > 4) // max speed right
+	else if (diff > 0 && diff > 4) // max speed right
 	{ 
 		diff = 5;
 	}
 	this.paddle.move(diff, 0);
 	
-	if(this.paddle.posX < 0) 
+	if (this.paddle.posX < 0) 
 	{
 		this.paddle.posX = 0;
 	} 
@@ -219,19 +219,19 @@ Ball.prototype.update = function(paddlePlayer, paddleComputer)
 	var bottomX = this.posX + ballRadius;
 	var bottomY = this.posY + ballRadius;
 	
-	if(this.posX - ballRadius < 0) // hitting the left wall
+	if (this.posX - ballRadius < 0) // hitting the left wall
 	{
 		this.posX = ballRadius;
 		this.speedX = -this.speedX;
 	}
-	else if(this.posX + ballRadius > width) // hitting the right wall
+	else if (this.posX + ballRadius > width) // hitting the right wall
 	{
 		this.posX = width - ballRadius;
 		this.speedX = -this.speedX;
 	}
 	
 	// a point was scored
-	if(this.posY < 0 || this.posY > height) 
+	if (this.posY < 0 || this.posY > height) 
 	{
 		this.speedX = ballStartSpeedX;
 		this.speedY = ballStartSpeedY;
@@ -239,10 +239,10 @@ Ball.prototype.update = function(paddlePlayer, paddleComputer)
 		this.posY = ballStartPosY;
 	}
 	
-	if(topY > ballStartPosY)
+	if (topY > ballStartPosY)
 	{
 		// hit the player's paddle
-		if(topY < (paddlePlayer.posY + paddlePlayer.height) && 
+		if (topY < (paddlePlayer.posY + paddlePlayer.height) && 
 			bottomY > paddlePlayer.posY && 
 			topX < (paddlePlayer.posX + paddlePlayer.width) && 
 			bottomX > paddlePlayer.posX)
@@ -255,7 +255,7 @@ Ball.prototype.update = function(paddlePlayer, paddleComputer)
 	else
 	{
 		// hit the computer's paddle
-		if(topY < (paddleComputer.posY + paddleComputer.height) && 
+		if (topY < (paddleComputer.posY + paddleComputer.height) && 
 			bottomY > paddleComputer.posY && 
 			topX < (paddleComputer.posX + paddleComputer.width) && 
 			bottomX > paddleComputer.posX)
