@@ -46,3 +46,11 @@
     padding: 36px 0;
     color: #fff;
 }
+
+textarea {
+    resize: none;
+    text-align: justify;
+    white-space: pre-line;
+    -moz-text-align-last: left;
+    text-align-last: left;
+}
