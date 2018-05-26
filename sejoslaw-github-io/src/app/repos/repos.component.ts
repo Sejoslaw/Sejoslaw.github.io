@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscribable, Subscription } from "rxjs";
 
 import { GitHubService } from "../services/github.service";
-
-import { Subscribable, Subscription } from "rxjs";
+import { RepositoryComponent } from './../repository/repository.component';
 
 @Component({
   selector: "app-repos",
@@ -23,7 +23,7 @@ export class ReposComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    for (let sub of this.subs) {
+    for (const sub of this.subs) {
       sub.unsubscribe();
     }
   }
