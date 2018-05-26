@@ -10,23 +10,33 @@ import { Subscribable, Subscription } from "rxjs";
   styleUrls: ["./repos.component.css"]
 })
 export class ReposComponent implements OnInit, OnDestroy {
-  private sub: Subscription;
+  private subs: Array<Subscription> = new Array<Subscription>();
 
   public repos: any;
+  public starred: any;
 
   constructor(private gitHubService: GitHubService) {}
 
   ngOnInit() {
-    this.generateTable();
+    this.generateMyReposTable();
+    this.generateStarredReposTable();
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    for (let sub of this.subs) {
+      sub.unsubscribe();
+    }
   }
 
-  generateTable() {
-    this.sub = this.gitHubService.getRepos("Sejoslaw").subscribe(data => {
+  generateMyReposTable() {
+    this.subs[0] = this.gitHubService.getRepos("Sejoslaw").subscribe(data => {
       this.repos = data;
+    });
+  }
+
+  generateStarredReposTable() {
+    this.subs[1] = this.gitHubService.getStarred("Sejoslaw").subscribe(data => {
+      this.starred = data;
     });
   }
 }
