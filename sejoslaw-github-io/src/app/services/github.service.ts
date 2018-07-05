@@ -1,19 +1,19 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
-import { Subscription, Subject } from "rxjs";
+import { GithubTableRow } from "../repository/GithubTableRow";
 
 @Injectable()
 export class GitHubService {
   constructor(private httpClient: HttpClient) {}
 
-  getRepos(userName: string) {
-    let url = "https://api.github.com/users/" + userName + "/repos?per_page=2147483647";
-    return this.httpClient.get(url);
-  }
+  getResults(userName: string, listName: string) {
+    const url = "https://api.github.com/users/" + userName + "/" + listName + "?per_page=2147483647";
+    const options = {
+      headers: {
+        'User-Agent': 'request'
+      }
+    };
 
-  getStarred(userName: string) {
-    let url = "https://api.github.com/users/" + userName + "/starred?per_page=2147483647" 
-    return this.httpClient.get(url);
+    return this.httpClient.get<GithubTableRow>(url, options);
   }
 }
