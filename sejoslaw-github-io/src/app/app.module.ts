@@ -19,7 +19,10 @@ import {
   MatTableModule,
   MatFormFieldModule,
   MatPaginatorModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatCardModule
 } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatMenuModule } from "@angular/material/menu";
@@ -48,7 +51,10 @@ const appRoutes: Routes = [{ path: "repos", component: ReposComponent }];
     MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [GitHubService],
   bootstrap: [AppComponent]
