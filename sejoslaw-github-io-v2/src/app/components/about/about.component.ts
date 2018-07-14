@@ -23,7 +23,9 @@ export class AboutComponent {
     { buttonText: 'E-Mail Me :)', link: 'mailto:k.dobrzynski94@gmail.com' },
     { buttonText: 'My Top Popular Minecraft Mod', link: 'https://minecraft.curseforge.com/projects/vanilla-magic' },
     { buttonText: 'GitHub', link: 'https://github.com/Sejoslaw' },
-    { buttonText: 'LinkedIn', link: 'https://www.linkedin.com/in/krzysztof-dobrzy%C5%84ski-849563140/' }
+    { buttonText: 'LinkedIn', link: 'https://www.linkedin.com/in/krzysztof-dobrzy%C5%84ski-849563140/' },
+    { buttonText: 'Pluralsight', link: 'https://app.pluralsight.com/profile/Reksi0' },
+    { buttonText: 'Certificates', link: 'https://www.youracclaim.com/users/krzysztof-dobrzynski' }
   ];
 
   constructor() {}

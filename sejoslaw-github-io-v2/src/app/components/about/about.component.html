@@ -16,11 +16,11 @@
     </mat-card-content>
     <mat-card-actions>
 
-        <mat-nav-list>
+        <mat-list>
             <mat-list-item *ngFor="let contact of contacts">
                 <a mat-raised-button color="primary" href="{{ contact.link }}" class="contact-button">{{ contact.buttonText }}</a>
             </mat-list-item>
-        </mat-nav-list>
+        </mat-list>
 
     </mat-card-actions>
 </mat-card>
