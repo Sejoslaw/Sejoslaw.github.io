@@ -1,0 +1,27 @@
+<mat-sidenav-container class="seia-sidenav-container" [class.dark-theme]="useDarkTheme">
+    <mat-sidenav #sidenav [mode]="isSmallScreen() ? 'over' : 'side'" [opened]="!isSmallScreen()" class="mat-elevation-z10">
+        <mat-toolbar color="primary">
+            Sejoslaw.github.io
+        </mat-toolbar>
+        <mat-list>
+            <mat-list-item>
+                <button mat-button routerLink="/">Home</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button routerLink="/myRepos">My Repositories</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button routerLink="/starredRepos">Starred Repositories (last 100)</button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <seia-toolbar (toggleSidenav)="sidenav.toggle()" (toggleDarkTheme)="toggleDarkTheme()"></seia-toolbar>
+
+        <div class="site-content-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

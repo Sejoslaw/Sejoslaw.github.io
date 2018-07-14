@@ -1,0 +1,19 @@
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+@include mat-core();
+$primary-light: mat-palette($mat-indigo);
+$accent-light: mat-palette($mat-pink, A200, A100, A400);
+$warn-light: mat-palette($mat-red);
+$theme-light: mat-light-theme($primary-light, $accent-light, $warn-light);
+@include angular-material-theme($theme-light);
+.dark-theme {
+    $primary-dark: mat-palette($mat-pink, 700);
+    $accent-dark: mat-palette($mat-green);
+    $warn-dark: mat-palette($mat-red);
+    $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+    @include angular-material-theme($theme-dark);
+}
+
+body {
+    margin: 0;
+}
