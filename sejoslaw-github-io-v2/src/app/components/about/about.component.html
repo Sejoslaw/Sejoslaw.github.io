@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Krzysztof Dobrzyński</mat-card-title>
+        <mat-card-subtitle>Fullstack Developer</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <h3 mat-subheader>Known Technologies:</h3>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let tech of knownTechnologies" matTooltip="{{ tech }}">
+                <p mat-line> {{ tech }} </p>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-nav-list>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+        <mat-nav-list>
+            <mat-list-item *ngFor="let contact of contacts">
+                <a mat-raised-button color="primary" href="{{ contact.link }}" class="contact-button">{{ contact.buttonText }}</a>
+            </mat-list-item>
+        </mat-nav-list>
+
+    </mat-card-actions>
+</mat-card>

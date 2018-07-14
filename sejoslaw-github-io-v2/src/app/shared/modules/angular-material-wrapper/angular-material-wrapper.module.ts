@@ -1,6 +1,6 @@
-import { CdkTableModule } from '@angular/cdk/table';
-import { CdkTreeModule } from '@angular/cdk/tree';
-import { NgModule } from '@angular/core';
+import { CdkTableModule } from "@angular/cdk/table";
+import { CdkTreeModule } from "@angular/cdk/tree";
+import { NgModule } from "@angular/core";
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -37,8 +37,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule
-} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+} from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   exports: [

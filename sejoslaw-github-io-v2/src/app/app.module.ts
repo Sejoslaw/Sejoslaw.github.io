@@ -14,6 +14,7 @@ import { ServicesModule } from './shared/modules/services/services.module';
 import { MyReposComponent } from './components/repos/my-repos/my-repos.component';
 import { StarredReposComponent } from './components/repos/starred-repos/starred-repos.component';
 import { ReposComponent } from './components/repos/repos.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReposComponent } from './components/repos/repos.component';
     MainSiteComponent,
     ReposComponent,
     MyReposComponent,
-    StarredReposComponent
+    StarredReposComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

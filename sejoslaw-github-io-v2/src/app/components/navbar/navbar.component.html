@@ -3,17 +3,27 @@
         <mat-toolbar color="primary">
             Sejoslaw.github.io
         </mat-toolbar>
-        <mat-list>
-            <mat-list-item>
-                <button mat-button routerLink="/">Home</button>
+
+        <mat-nav-list>
+            <mat-list-item routerLink="/">
+                <mat-icon>home</mat-icon> Home
+            </mat-list-item>
+            <mat-list-item routerLink="/myRepos">
+                <mat-icon>list</mat-icon> My Repositories
+            </mat-list-item>
+            <mat-list-item routerLink="/starredRepos">
+                <mat-icon>list</mat-icon> Starred Repositories (last 100)
+            </mat-list-item>
+            <mat-list-item routerLink="/about">
+                <mat-icon>face</mat-icon> About
             </mat-list-item>
             <mat-list-item>
-                <button mat-button routerLink="/myRepos">My Repositories</button>
+                <a href="https://github.com/Sejoslaw/Sejoslaw.github.io">
+                    <mat-icon>dashboard</mat-icon> Website Sources
+                </a>
             </mat-list-item>
-            <mat-list-item>
-                <button mat-button routerLink="/starredRepos">Starred Repositories (last 100)</button>
-            </mat-list-item>
-        </mat-list>
+        </mat-nav-list>
+
     </mat-sidenav>
 
     <mat-sidenav-content>
