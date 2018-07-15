@@ -5,17 +5,8 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <mat-list-item routerLink="/">
-                <mat-icon>home</mat-icon> Home
-            </mat-list-item>
-            <mat-list-item routerLink="/myRepos">
-                <mat-icon>list</mat-icon> My Repositories
-            </mat-list-item>
-            <mat-list-item routerLink="/starredRepos">
-                <mat-icon>list</mat-icon> Starred Repositories (last 100)
-            </mat-list-item>
-            <mat-list-item routerLink="/about">
-                <mat-icon>face</mat-icon> About
+            <mat-list-item *ngFor='let button of navbarButtons' routerLink="{{ button.routerPath }}" (click)="navbarButtonClicked(sidenav)">
+                <mat-icon>{{ button.icon }}</mat-icon> {{ button.buttonText }}
             </mat-list-item>
             <mat-list-item>
                 <a href="https://github.com/Sejoslaw/Sejoslaw.github.io">
