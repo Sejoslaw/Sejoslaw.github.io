@@ -50,7 +50,7 @@ body {
 .post-card {
     display: flex;
     flex-direction: column;
-    height: 220px;
+    height: 250px;
     border-radius: 12px;
     background-color: var(--card-bg);
     cursor: pointer;
