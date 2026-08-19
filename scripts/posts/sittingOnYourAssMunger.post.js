@@ -5,7 +5,7 @@ class SittingOnYourAssMungerPost extends BasePost {
             title: "Zasada „Sitting on Your Ass” według Charliego Mungera: Dlaczego sztuka nierobienia niczego daje największe zyski?",
             description: "Dlaczego najlepszą rzeczą, jaką inwestor dywidendowy może zrobić po zakupie dobrej spółki, jest nie robić nic? Zobacz, jak Munger układał procent składany i dlaczego ciągły handel niszczy stopę zwrotu.",
             tags: ["munger", "procent-skladany", "dywidendy", "psychologia-inwestowania", "analiza-fundamentalna"],
-            date: "2026-08-22"
+            date: "2026-08-19"
         });
     }
 
